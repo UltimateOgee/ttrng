@@ -1,16 +1,9 @@
 # ttrng
 
-A new Flutter project.
+A tutoring website to connect students and tutors.
 
-## Getting Started
+## Details
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is based in flutter. You can find the design doc and figma sketches below:
+- [Google Docs TTRNG Design Doc](https://docs.google.com/document/d/1YWY6egZ6CLHBwYYz8c66nwW0Z_e5JiwWkRHEqG4t1M4/edit?tab=t.0#heading=h.s16jbbqm2bcz)
+- [Figma Wireframe](https://www.figma.com/design/if45pqFjFVLTOv7HkVYVot/TTRNG-Wireframes?node-id=11-2&node-type=frame&t=L7TTh1h6a1r6OuWj-0)
