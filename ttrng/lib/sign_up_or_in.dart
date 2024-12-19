@@ -44,8 +44,6 @@ class _SignUpOrInState extends State<SignUpOrIn> {
     setState(() {
       _isSignUp = !_isSignUp;
       _clearTextFields();
-      //reset the form state so the form validotors don't go crazy during toggle
-      _formKey.currentState?.reset();
     });
   }
 
@@ -137,7 +135,7 @@ class _SignUpOrInState extends State<SignUpOrIn> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // handle sign up or sign in at this point
+                      //do any sign in or sign up logic here
                     }
                   },
                   child: Text(_isSignUp ? 'Sign Up' : 'Sign In'),
