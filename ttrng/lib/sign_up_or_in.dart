@@ -1,4 +1,3 @@
-// FILE: lib/signUporIn.dart
 import 'package:flutter/material.dart';
 
 class SignUpOrIn extends StatefulWidget {
@@ -136,7 +135,7 @@ class _SignUpOrInState extends State<SignUpOrIn> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Handle form submission
+                      // handle sign up or sign in at this point
                     }
                   },
                   child: Text(_isSignUp ? 'Sign Up' : 'Sign In'),
