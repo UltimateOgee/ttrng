@@ -1,3 +1,4 @@
+// FILE: lib/signUporIn.dart
 import 'package:flutter/material.dart';
 
 class SignUpOrIn extends StatefulWidget {
@@ -16,6 +17,14 @@ class _SignUpOrInState extends State<SignUpOrIn> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
+  late bool _isSignUp;
+
+  @override
+  void initState() {
+    super.initState();
+    _isSignUp = widget.isSignUp;
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -25,11 +34,25 @@ class _SignUpOrInState extends State<SignUpOrIn> {
     super.dispose();
   }
 
+  void _clearTextFields() {
+    _nameController.clear();
+    _emailController.clear();
+    _passwordController.clear();
+    _confirmPasswordController.clear();
+  }
+
+  void _toggleMode() {
+    setState(() {
+      _isSignUp = !_isSignUp;
+      _clearTextFields();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isSignUp ? 'Sign Up' : 'Sign In'),
+        title: Text(_isSignUp ? 'Sign Up' : 'Sign In'),
       ),
       body: Center(
         child: Padding(
@@ -39,10 +62,13 @@ class _SignUpOrInState extends State<SignUpOrIn> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (widget.isSignUp) ...[
+                if (_isSignUp) ...[
                   TextFormField(
                     controller: _nameController,
-                    decoration: const InputDecoration(labelText: 'Name', border: OutlineInputBorder(),),
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                      border: OutlineInputBorder(),
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your name';
@@ -54,7 +80,10 @@ class _SignUpOrInState extends State<SignUpOrIn> {
                 ],
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(labelText: 'Email', border: OutlineInputBorder(),),
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                  ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -68,23 +97,29 @@ class _SignUpOrInState extends State<SignUpOrIn> {
                 const SizedBox(height: 10),
                 TextFormField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'Password', border: OutlineInputBorder(),),
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                  ),
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
                     }
-                    if (value.length < 8) {
-                      return 'Password must be at least 8 characters long';
+                    if (value.length < 6) {
+                      return 'Password must be at least 6 characters long';
                     }
                     return null;
                   },
                 ),
-                if (widget.isSignUp) ...[
+                if (_isSignUp) ...[
                   const SizedBox(height: 10),
                   TextFormField(
                     controller: _confirmPasswordController,
-                    decoration: const InputDecoration(labelText: 'Confirm Password', border: OutlineInputBorder(),),
+                    decoration: const InputDecoration(
+                      labelText: 'Confirm Password',
+                      border: OutlineInputBorder(),
+                    ),
                     obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -101,10 +136,23 @@ class _SignUpOrInState extends State<SignUpOrIn> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // do some stuff here if they hit the sign up or sign in button
+                      // Handle form submission
                     }
                   },
-                  child: Text(widget.isSignUp ? 'Sign Up' : 'Sign In'),
+                  child: Text(_isSignUp ? 'Sign Up' : 'Sign In'),
+                ),
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: _toggleMode,
+                  child: Text(
+                    _isSignUp
+                        ? "Already have an account? Sign in here"
+                        : "Don't have an account? Sign up here",
+                    style: const TextStyle(
+                      decoration: TextDecoration.underline,
+                      color: Colors.blue,
+                    ),
+                  ),
                 ),
               ],
             ),
