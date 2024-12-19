@@ -44,6 +44,8 @@ class _SignUpOrInState extends State<SignUpOrIn> {
     setState(() {
       _isSignUp = !_isSignUp;
       _clearTextFields();
+      //reset the form state so the form validotors don't go crazy during toggle
+      _formKey.currentState?.reset();
     });
   }
 
