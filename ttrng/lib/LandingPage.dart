@@ -36,88 +36,97 @@ class _LandingPageState extends State<LandingPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      alignment: Alignment.center,
-                      height: 300,
-                      child: const Text(
-                        'Need a Tutor? Get started here',
-                        style: TextStyle(fontSize: 70),
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        width: size.width * 0.5, // Button width
-                        height: size.height * 0.05, // Button height
-                        child: OutlinedButton(
-                          onPressed: () {
-                            // Button onPressed action
-                            showAlertDialog(context);
-                          },
-                          child: Text(
-                            'I\'m a Student',
-                            style: TextStyle(fontSize: 40),
+                      color: Colors.grey[200],
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 300,
+                            child: const Text(
+                              'Need a Tutor? Get started here',
+                              style: TextStyle(fontSize: 70),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      height: 100,
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        width: size.width * 0.3, // Button width
-                        height: size.height * 0.04, // Button height
-                        child: OutlinedButton(
-                          onPressed: () {
-                            // Button onPressed action
-                            showAlertDialog(context);
-                          },
-                          child: Text(
-                            'I\'m a Teacher',
-                            style: TextStyle(fontSize: 30),
+                          Container(
+                            height: 100,
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              width: size.width * 0.5, // Button width
+                              height: size.height * 0.05, // Button height
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  // Button onPressed action
+                                  showAlertDialog(context);
+                                },
+                                child: Text(
+                                  'I\'m a Student',
+                                  style: TextStyle(fontSize: 40),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            height: 100,
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              width: size.width * 0.3, // Button width
+                              height: size.height * 0.04, // Button height
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  // Button onPressed action
+                                  showAlertDialog(context);
+                                },
+                                child: Text(
+                                  'I\'m a Teacher',
+                                  style: TextStyle(fontSize: 30),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
-                      height: 600,
-                      width: double.infinity,
-                      margin: const EdgeInsets.all(15.0),
-                      padding: const EdgeInsets.all(3.0),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blueAccent)),
+                      color: Colors.grey[700],
+                      height: 500,
+                      padding: const EdgeInsets.all(10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                     "Tutoring that makes sense for both you and your wallet.",
-                                    style: TextStyle(fontSize: 50)),
+                                    style: TextStyle(fontSize: 50,color: Colors.white)),
+                                Padding(padding: EdgeInsets.all(25)),
                                 Text(
                                     "TTRNG offers flexibility for tutors you want, at the price you want.",
-                                    style: TextStyle(fontSize: 30))
+                                    style: TextStyle(fontSize: 30,color: Colors.white))
                               ],
                             ),
                           ),
-                          VerticalDivider(width: 1.0),
+                          VerticalDivider(
+                            thickness: 0.01,
+                            width: 0.01,
+                            color: Colors.black,
+                          ),
                           Expanded(
-                              child: const Image(
-                            image: NetworkImage(
-                                'https://epe.brightspotcdn.com/dims4/default/3eb4faf/2147483647/strip/true/crop/2980x2022+10+0/resize/840x570!/format/webp/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.us-east-1.amazonaws.com%2Fce%2F1b%2F4dbafb4c44e0921e72cd7c242b01%2Fteacher-tutor-student-022023-187244393.jpg'),
-                          )),
+                            child: const Image(
+                              image: NetworkImage(
+                                  'https://epe.brightspotcdn.com/dims4/default/3eb4faf/2147483647/strip/true/crop/2980x2022+10+0/resize/840x570!/format/webp/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.us-east-1.amazonaws.com%2Fce%2F1b%2F4dbafb4c44e0921e72cd7c242b01%2Fteacher-tutor-student-022023-187244393.jpg'),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                     Container(
                       height: 500,
-                      width: double.infinity,
-                      margin: const EdgeInsets.all(15.0),
-                      padding: const EdgeInsets.all(3.0),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.blueAccent)),
                       child: Row(
@@ -153,7 +162,6 @@ class _LandingPageState extends State<LandingPage> {
                     Container(
                       height: 500,
                       width: double.infinity,
-                      margin: const EdgeInsets.all(15.0),
                       padding: const EdgeInsets.all(3.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -168,10 +176,7 @@ class _LandingPageState extends State<LandingPage> {
                     Container(
                       height: 500,
                       width: double.infinity,
-                      margin: const EdgeInsets.all(15.0),
-                      padding: const EdgeInsets.all(3.0),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blueAccent)),
+                      padding: const EdgeInsets.all(15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -181,14 +186,14 @@ class _LandingPageState extends State<LandingPage> {
                               child: ExampleReviewWidget(),
                             ),
                           ),
-                          VerticalDivider(width: 15),
+                          VerticalDivider(width: 0.01, color: Colors.white),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,
                               child: ExampleReviewWidget(),
                             ),
                           ),
-                          VerticalDivider(width: 15),
+                          VerticalDivider(width: 0.01, color: Colors.white),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,
