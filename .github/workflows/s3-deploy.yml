@@ -16,11 +16,11 @@ jobs:
       - name: Install Flutter
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget unzip
+          sudo apt-get install -y wget xz-utils
           wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.0-stable.tar.xz
           tar xf flutter_linux_3.13.0-stable.tar.xz
-          export PATH="$PATH:$GITHUB_WORKSPACE/flutter/bin"
-          flutter doctor
+          echo "export PATH=\$PATH:$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_ENV
+          flutter/bin/flutter doctor
 
       - name: Install dependencies
         run: flutter pub get
