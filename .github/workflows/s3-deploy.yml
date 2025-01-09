@@ -18,7 +18,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wget xz-utils
           wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.27.1-stable.tar.xz
-          tar xf flutter_linux_3.13.0-stable.tar.xz
+          tar xf flutter_linux_3.27.1-stable.tar.xz
           echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
           flutter/bin/flutter doctor
 
